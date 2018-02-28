@@ -82,5 +82,23 @@ namespace Animutivator
 			QuoteShown = false;
 			this.ContextMenu = null;
 		}
+
+		private void QuoteAlphaClose_Click(object sender, RoutedEventArgs e)
+		{
+			this.quoteAlphaPanel.Visibility = Visibility.Collapsed;
+		}
+
+		private void OnAdjustQuoteAlphaClick(object sender, RoutedEventArgs e)
+		{
+			this.quoteAlphaPanel.Visibility = Visibility.Visible;
+		}
+
+		private void QuoteLocation_Click(object sender, RoutedEventArgs e)
+		{
+			var tag = (sender as MenuItem).Tag;
+			Asure.NotNull(tag);
+
+			this.quoteField.VerticalAlignment = (VerticalAlignment)tag;
+		}
 	}
 }

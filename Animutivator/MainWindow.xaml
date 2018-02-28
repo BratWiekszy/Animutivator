@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Animutivator"
-        mc:Ignorable="d"
+		xmlns:wnd1="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		mc:Ignorable="d"
 		
         Title="Animu Gurl :)" Height="420" Width="250" ResizeMode="NoResize" Topmost="True"
 		ScrollViewer.VerticalScrollBarVisibility="Disabled" SnapsToDevicePixels="True"
@@ -19,13 +20,32 @@
 		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap"
 				   VerticalAlignment="Top" Width="240" Height="85" Background="#FFFFFFFF" 
 				   FontSize="15" Padding="5,4" FontStyle="Italic" Name="quoteField" />
+
+		<StackPanel Margin="0,90,0.368,250.096" Background="White" Height="70" 
+					Visibility="Collapsed" Name="quoteAlphaPanel">
+			<Slider Margin="5,5,5,5" Foreground="Indigo" Maximum="1.0" Minimum="0" 
+					Value="{Binding Background.Opacity, ElementName=quoteField}"/>
+			<Button Height="25" Width="100" BorderBrush="Indigo" Margin="70,10,70,0"
+					Content="Close" Click="QuoteAlphaClose_Click"/>
+		</StackPanel>
 	</Grid>
 	<Window.Resources>
 		<ContextMenu x:Key="contextMenu" BorderBrush="Indigo">
 			<MenuItem Header="Hide quote" Click="OnHideClick"/>
 			<Separator/>
-			<MenuItem Header="Adjust quote opacity"/>
-			<MenuItem Header="Change quote location"/>
+			<MenuItem Header="Adjust quote opacity" Click="OnAdjustQuoteAlphaClick"/>
+			<MenuItem Header="Change quote location" >
+				<MenuItem Header="Top" Click="QuoteLocation_Click">
+					<MenuItem.Tag>
+						<wnd1:VerticalAlignment>Top</wnd1:VerticalAlignment>
+					</MenuItem.Tag>
+				</MenuItem>
+				<MenuItem Header="Bottom" Click="QuoteLocation_Click">
+					<MenuItem.Tag>
+						<wnd1:VerticalAlignment>Bottom</wnd1:VerticalAlignment>
+					</MenuItem.Tag>
+				</MenuItem>
+			</MenuItem>
 		</ContextMenu>
 	</Window.Resources>
 </Window>
