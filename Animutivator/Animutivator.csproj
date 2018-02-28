@@ -42,10 +42,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="JetBrains.Annotations, Version=11.1.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
-      <HintPath>..\packages\JetBrains.Annotations.11.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\JetBrains.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="JsonRazor, Version=1.2.2.2, Culture=neutral, PublicKeyToken=00eb4cb5f2797687, processorArchitecture=MSIL">
-      <HintPath>..\packages\JsonRazor.1.2.2.2\lib\net45\JsonRazor.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\JsonRazor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
