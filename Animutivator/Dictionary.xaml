@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:Animutivator">
+	<system:String x:Key="tray.exit">Bye!</system:String>
+	<system:String x:Key="tray.showGirl">Show</system:String>
+	<system:String x:Key="tray.hideGirl">Hide</system:String>
+	<system:String x:Key="tray.selectGirl">Change Girl</system:String>
+	<system:String x:Key="tray.addGirl">Add Girl</system:String>
+</ResourceDictionary>

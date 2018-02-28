@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Animutivator.Api.TitledTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Animutivator.Api"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="150" Name="tile" 
+			 MinWidth="90" MinHeight="120">
+	<Button Style="{StaticResource GirlTileStyle}" Name="button" Width="Auto" Height="Auto" 
+			BorderThickness="1,1,1,3" Click="button_Click">
+		<StackPanel 
+				    ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+					Margin="1" Orientation="Vertical">
+			<Image HorizontalAlignment="Left" Margin="10,10,10,5" 
+				   VerticalAlignment="Bottom" Name="image"/>
+			<Label HorizontalAlignment="Center" Name="title"
+				   Padding="4" Margin="10,0,10,10" />
+		</StackPanel> 
+    </Button>
+</UserControl>
