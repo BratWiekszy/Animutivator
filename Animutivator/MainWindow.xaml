@@ -17,7 +17,7 @@
 			</Image.Effect>
 		</Image>
 		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap"
-				   VerticalAlignment="Top" Width="240" Height="85" Background="White" 
+				   VerticalAlignment="Top" Width="240" Height="85" Background="#FFFFFFFF" 
 				   FontSize="15" Padding="5,4" FontStyle="Italic" Name="quoteField" />
 	</Grid>
 </Window>

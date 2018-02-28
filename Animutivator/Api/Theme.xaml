@@ -14,13 +14,30 @@
 		</Setter>
 		<Style.Triggers>
 			<Trigger Property="IsMouseOver" Value="True">
-				<Setter Property="Margin" Value="10, 6, 10, 14" />
 				<Setter Property="Effect">
 					<Setter.Value>
 						<DropShadowEffect BlurRadius="10" ShadowDepth="5" Opacity="0.6" Direction="270"/>
 					</Setter.Value>
 				</Setter>
 			</Trigger>
+			<EventTrigger RoutedEvent="Button.MouseEnter">
+				<BeginStoryboard>
+					<Storyboard>
+						<ThicknessAnimation 
+							Storyboard.TargetProperty="Margin" Duration="0:0:0.15"
+							From="10,10,10,10" To="10,6,10,14" />
+					</Storyboard>
+				</BeginStoryboard>
+			</EventTrigger>
+			<EventTrigger RoutedEvent="Button.MouseLeave">
+				<BeginStoryboard>
+					<Storyboard>
+						<ThicknessAnimation 
+							Storyboard.TargetProperty="Margin" Duration="0:0:0.1"
+							From="10,6,10,14" To="10,10,10,10" />
+					</Storyboard>
+				</BeginStoryboard>
+			</EventTrigger>
 		</Style.Triggers>
 		<Style.Resources>
 			<Style TargetType="Image">
@@ -36,6 +53,7 @@
 					<DataTrigger Binding="{Binding Path=IsMouseOver, 
 						RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
 						<Setter Property="FontWeight" Value="Bold" />
+						<Setter Property="Foreground" Value="#8F000030"/>
 					</DataTrigger>
 				</Style.Triggers>
 			</Style>

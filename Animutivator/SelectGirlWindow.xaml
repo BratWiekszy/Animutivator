@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Animutivator"
         mc:Ignorable="d"
 		
-        Title="Select Girl" Height="400" Width="640" Icon="images/animutivator_icon.ico" 
+        Title="Select Avatar" Height="400" Width="640" Icon="images/animutivator_icon.ico" 
 		MinWidth="640" MinHeight="320" WindowStartupLocation="CenterScreen" 
 		SnapsToDevicePixels="True">
 	<Window.TaskbarItemInfo>

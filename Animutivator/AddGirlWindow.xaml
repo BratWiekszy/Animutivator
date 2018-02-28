@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Animutivator"
 		xmlns:api="clr-namespace:Animutivator.Api"
         mc:Ignorable="d"
-        Title="Add Girl" Height="440" Width="600" ResizeMode="CanMinimize"
+        Title="Add Avatar" Height="440" Width="600" ResizeMode="CanMinimize"
 		WindowStartupLocation="CenterScreen" SnapsToDevicePixels="True" Icon="images/animutivator_icon.ico">
 	<Window.Resources>
 		<api:TextToWatermarkVisibility x:Key="TextToVisibility" />
@@ -18,7 +18,7 @@
 				 x:Name="nameInput" FontSize="14" TabIndex="0" Background="Transparent"
 				 BorderBrush="DarkBlue"/>
 
-		<TextBlock Margin="12,12,323,365" Text="Girl name..." IsHitTestVisible="False"
+		<TextBlock Margin="12,12,323,365" Text="Name..." IsHitTestVisible="False"
 				 Visibility="{Binding ElementName=nameInput, Path=Text,
 							  Converter={StaticResource TextToVisibility}}" FontSize="14" />
 
@@ -66,7 +66,7 @@
 				Foreground="Indigo" Click="addQuoteButton_Click" FontSize="14" 
 				FontWeight="Bold" BorderThickness="1,1,1,1"/>
 
-		<Button Content="Add Girl" HorizontalAlignment="Left" 
+		<Button Content="Add Avatar" HorizontalAlignment="Left" 
 				Margin="10,70,0,10"
 				VerticalAlignment="Bottom" Width="240" Height="25"
 				x:Name="confirmButton" Background="#FFAA1EFF" BorderBrush="#FFB420FF"
