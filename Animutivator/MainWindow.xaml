@@ -11,7 +11,7 @@
 		Background="Transparent" WindowStyle="None" AllowsTransparency="True"
 		ShowInTaskbar="False">
 	<Grid x:Name="girlPane" Margin="10,10,0,0">
-		<Image x:Name="girlImage" HorizontalAlignment="Right" Height="320" Margin="0" VerticalAlignment="Bottom" Width="240" Source="gurl_1.png" MouseDown="girlImage_MouseDown">
+		<Image x:Name="girlImage" HorizontalAlignment="Right" Height="320" Margin="0" VerticalAlignment="Bottom" Width="240" MouseDown="girlImage_MouseDown">
 			<Image.Effect>
 				<DropShadowEffect Opacity="0.7" ShadowDepth="8" Direction="270" BlurRadius="12"/>
 			</Image.Effect>
@@ -20,4 +20,12 @@
 				   VerticalAlignment="Top" Width="240" Height="85" Background="#FFFFFFFF" 
 				   FontSize="15" Padding="5,4" FontStyle="Italic" Name="quoteField" />
 	</Grid>
+	<Window.Resources>
+		<ContextMenu x:Key="contextMenu" BorderBrush="Indigo">
+			<MenuItem Header="Hide quote" Click="OnHideClick"/>
+			<Separator/>
+			<MenuItem Header="Adjust quote opacity"/>
+			<MenuItem Header="Change quote location"/>
+		</ContextMenu>
+	</Window.Resources>
 </Window>

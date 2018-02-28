@@ -63,9 +63,24 @@ namespace Animutivator
 
 		private void girlImage_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-			QuoteShown = e.ChangedButton == MouseButton.Left;
+			QuoteShown = e.ChangedButton == MouseButton.Left || _quoteShown;
 
-			_quoteProvider.ProvideQuote(this.quoteField.Inlines);
+			if(e.ChangedButton == MouseButton.Left)
+				_quoteProvider.ProvideQuote(this.quoteField.Inlines);
+			else if (_quoteShown)
+			{
+				this.ContextMenu = this.FindResource("contextMenu") as ContextMenu;
+				Asure.NotNull(this.ContextMenu);
+
+				this.ContextMenu.PlacementTarget = sender as UIElement;
+				this.ContextMenu.IsOpen = true;
+			}
+		}
+
+		private void OnHideClick(object sender, RoutedEventArgs e)
+		{
+			QuoteShown = false;
+			this.ContextMenu = null;
 		}
 	}
 }
