@@ -7,7 +7,8 @@
 		xmlns:api="clr-namespace:Animutivator.Api"
         mc:Ignorable="d"
         Title="Add Avatar" Height="440" Width="600" ResizeMode="CanMinimize"
-		WindowStartupLocation="CenterScreen" SnapsToDevicePixels="True" Icon="images/animutivator_icon.ico">
+		WindowStartupLocation="CenterScreen" SnapsToDevicePixels="True" Icon="images/animutivator_icon.ico"
+		d:DataContext="{d:DesignData AddGirlWindow}">
 	<Window.Resources>
 		<api:TextToWatermarkVisibility x:Key="TextToVisibility" />
 	</Window.Resources>

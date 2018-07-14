@@ -11,7 +11,7 @@ using JsonRazor.Serialization;
 
 namespace Animutivator
 {
-	public class GirlsConfig
+	public class GirlsConfig : IDisposable
 	{
 		private const string FallbackGirlPhotoUrl 
 			= @"https://pre00.deviantart.net/ab52/th/pre/f/2016/123/6/1/kancolle_transparent_background_by_juanwan-da14pf6.png";
@@ -21,6 +21,7 @@ namespace Animutivator
 		private const string DefaultGirlPath = @"Girls\Secret Admirer.png";
 
 		private Config _config;
+		private bool _pendingChanges;
 
 		public Girl CurrentGirl => _config.GetCurrentGirl();
 
@@ -44,6 +45,10 @@ namespace Animutivator
 					Asure.NotNull(_config);
 				}
 			}
+		}
+
+		~GirlsConfig() {
+			Dispose();
 		}
 
 		private void WriteDefaultConfig()
@@ -106,7 +111,16 @@ namespace Animutivator
 		public void AddGirl([NotNull] Girl girl)
 		{
 			_config.Girls.Add(girl);
-			WriteConfig();
+			_pendingChanges = true;
+			//WriteConfig();
+		}
+
+		public Girl SelectGirl([NotNull] string name)
+		{
+			var girl = _config.Girls.First(g => g.Name == name);
+			_config.SetCurrentGirl(girl);
+			_pendingChanges = true;
+			return girl;
 		}
 
 		private void WriteConfig()
@@ -118,14 +132,16 @@ namespace Animutivator
 			}
 		}
 
-		public Girl SelectGirl([NotNull] string name)
-		{
-			var girl = _config.Girls.First(g => g.Name == name);
-			_config.SetCurrentGirl(girl);
-			return girl;
-		}
-
 		public IEnumerable<Girl> Girls => _config.Girls;
+
+		public void Dispose() 
+		{
+			GC.SuppressFinalize(this);
+			if(_pendingChanges){
+				_pendingChanges = false;
+				WriteConfig();
+			}
+		}
 
 		private class Config
 		{

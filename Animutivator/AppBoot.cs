@@ -28,6 +28,7 @@ namespace Animutivator
 
 		private void Exit()
 		{
+			_config.Dispose();
 			_mainWindow.Close();
 		}
 
